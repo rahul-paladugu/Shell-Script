@@ -1,5 +1,7 @@
 #!/bin/bash
 
+env = $1
+
 if [ $env = PROD ]; then
    echo "PROD environment is selected. So right sizing is "t3.large""
 elif [ $env = UAT ]; then
