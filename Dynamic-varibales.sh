@@ -7,5 +7,5 @@
 start_time=$(date +%s)
 sudo dnf install ansible -y
 end_time=$(date +%s)
-total_time=$(($start_time-$end_time))
+total_time=$(($end_time-$start_time))
 echo "time taken to install Ansible is $total_time"
