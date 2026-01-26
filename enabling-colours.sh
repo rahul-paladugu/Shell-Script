@@ -7,13 +7,13 @@ bold="\e[1;33m"
 reset="\e[0m"
 user=$(id -u)
 if [ "$user" -ne 0 ]; then
-  echo -e "$bold To install any packages you need root access $reset"
+  echo -e "$bold To install any package you need root access $reset"
   echo -e "$red Please run the script using root access $reset"
   exit 1
 fi
 
-echo "Please type the packages to be installed seperated by space"
-read packages
+echo "Please type the package to be installed"
+read package
 
 validation() {
     if [ "$?" -ne 0 ]; then
@@ -24,11 +24,6 @@ validation() {
     fi
 
 }
-# dnf list installed $package
-# validation $package
-
-for package in $packages; do
-dnf list install $package
+dnf list installed $package
 validation $package
-done
 
