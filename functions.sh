@@ -2,6 +2,7 @@
 userid=$(id -u)
 if [ $userid -ne 0 ]; then
   echo "Please use root access to install any softwares"
+  # exit 1 # This will notify shell script to stop execution.
 fi
 
 # Below is the function to re-use block of code when required
