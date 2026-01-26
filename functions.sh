@@ -14,5 +14,5 @@ Validate() {
     fi
 }
 
-dnf install ansible -y
+sudo dnf install ansible -y
 Validate $? ansible
