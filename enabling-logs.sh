@@ -40,4 +40,4 @@ validation() {
 start_time=$(date +%s)
 validation $package
 end_time=$(date +%s)
-echo "Total time taken for execution is $(($end_time - $start_time))"
+echo "Total time taken for execution is $(($end_time - $start_time)) Seconds"
