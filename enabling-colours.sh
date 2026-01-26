@@ -4,7 +4,24 @@ red="\e[31m"
 green="\e[32m"
 yellow="\e[33m"
 reset="\e[0m"
+user=$(id -u)
+if [ $user -ne 0 ] then
+  echo "To install any packages you need root access"
+  echo -e "$red Please run the script using root access $reset"
+  exit 1
+fi
+echo "Please type the package to be installed"
+read package
 
-echo -e "$red Hello world $reset"
+validation() {
+    if [ $? -ne 0 ] then
+      dnf install $package -y
+      echo -e "$green Successfully installed $package . $reset"
+    else
+      echo -e "$yellow Given package $package was already installed in the server. $reset"
+    fi
 
-echo "Please enter valid credntials"
+}
+dnf list installed $package
+validation
+

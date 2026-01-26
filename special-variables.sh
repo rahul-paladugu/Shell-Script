@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "All variables passed to this script are $@"
+
 echo "All variables passed to this script are $*"
 echo "current working directory is $PWD"
 echo "who is running this script: $USER"
