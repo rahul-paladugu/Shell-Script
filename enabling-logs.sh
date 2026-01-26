@@ -8,7 +8,7 @@ user=$(id -u)
 logs_folder="/var/logs/shell"
 script_name="$(echo $0 | cut -d "." -f1)"
 log="$logs_folder/$script_name .log"
-mkdir -p $logs_folder
+mkdir -p $logs_folder &>>$log
 if [ "$user" -ne 0 ]; then
   echo -e "$red Please run the script using root access. $reset" | tee -a $log
   exit 1
