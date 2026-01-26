@@ -3,11 +3,11 @@
 red="\e[31m"
 green="\e[32m"
 yellow="\e[33m"
-bold="\e[0m"
+bold="\e[1;33m"
 reset="\e[0m"
 user=$(id -u)
 if [ "$user" -ne 0 ]; then
-  echo -e "$bold $yellow To install any packages you need root access $reset"
+  echo -e "$bold To install any packages you need root access $reset"
   echo -e "$red Please run the script using root access $reset"
   exit 1
 fi
