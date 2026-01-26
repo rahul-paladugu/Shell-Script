@@ -18,7 +18,7 @@ fi
 logs_folder="/var/logs/shell"
 script_name="$(echo $0 | cut -d "." -f1)"
 mkdir -p $logs_folder 
-log="$logs_folder/$script_name .log"
+log="$logs_folder/$script_name.log"
 #Requesting user to provide package details
 
 echo -e "$green Please enter the package to be installed $reset" | tee -a $log
@@ -27,6 +27,7 @@ read package
 #Validation Function
 
 validation() {
+    dnf list installed $package
     if [ "$?" -ne 0 ]; then
       dnf install $package -y &>>$log
     else
@@ -34,4 +35,5 @@ validation() {
     fi
 }
 
-validation $package
+#Execution
+validation
