@@ -1,6 +1,7 @@
 #!/bin/bash
 
 red="\e[31m"
+green="\e[32m"
 yellow="\e[33m"
 reset="\e[0m"
 user=$(id -u)
@@ -14,14 +15,14 @@ if [ "$user" -ne 0 ]; then
   exit 1
 fi
 
-echo "Please enter the package to be installed" | tee -a $log
+echo -e "$green Please enter the package to be installed $reset" | tee -a $log
 read package
 
 validation() {
     if [ "$?" -ne 0 ]; then
       dnf install $package -y &>>$log
     else
-      echo "$yellow The given package was already installed in the server $reset" | tee -a $log
+      echo -e "$yellow The given package was already installed in the server $reset" | tee -a $log
     fi
 }
 
