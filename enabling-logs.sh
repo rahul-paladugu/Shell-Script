@@ -17,9 +17,8 @@ fi
 
 logs_folder="/var/logs/shell"
 script_name="$(echo $0 | cut -d "." -f1)"
+mkdir -p $logs_folder 
 log="$logs_folder/$script_name .log"
-mkdir -p $logs_folder &>>$log
-
 #Requesting user to provide package details
 
 echo -e "$green Please enter the package to be installed $reset" | tee -a $log
