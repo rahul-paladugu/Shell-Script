@@ -27,13 +27,17 @@ read package
 #Validation Function
 
 validation() {
-    dnf list installed $package &>>$log
+    dnf list installed $1 &>>$log
     if [ "$?" -ne 0 ]; then
-      dnf install $package -y &>>$log
+      dnf install $1 -y &>>$log
+      echo -e "$green $1 installed successfully"
     else
       echo -e "$yellow The given package was already installed in the server $reset" | tee -a $log
     fi
 }
 
 #Execution
-validation
+start_time=$(date +%s)
+validation $package
+end_time=$(date +%s)
+echo "Total time taken for execution is $(($end_time - $start_time))"
