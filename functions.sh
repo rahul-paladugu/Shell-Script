@@ -1,6 +1,6 @@
 #!/bin/bash
-
-if [ $(id -u) -ne 0 ]; then
+userid=$(id -u)
+if [ $userid -ne 0 ]; then
   echo "Please use root access to install any softwares"
 fi
 
