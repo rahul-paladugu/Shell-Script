@@ -27,7 +27,7 @@ read package
 #Validation Function
 
 validation() {
-    dnf list installed $package
+    dnf list installed $package &>>$log
     if [ "$?" -ne 0 ]; then
       dnf install $package -y &>>$log
     else
