@@ -5,6 +5,6 @@ green="\e[32m"
 yellow="\e[33m"
 reset="\e[0m"
 
-echo -e "${red}Hello world"
+echo -e "$red Hello world $reset"
 
 echo "Please enter valid credntials"
