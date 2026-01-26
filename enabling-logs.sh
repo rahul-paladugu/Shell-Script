@@ -27,7 +27,7 @@ read package
 #Validation Function
 
 validation() {
-    dnf list installed $1 &>>$log
+    rpm -q $1 &>>$log
     if [ "$?" -ne 0 ]; then
       dnf install $1 -y &>>$log
       echo -e "$green $1 installed successfully"
