@@ -6,17 +6,26 @@ yellow="\e[33m"
 reset="\e[0m"
 user=$(id -u)
 
-logs_folder="/var/logs/shell"
-script_name="$(echo $0 | cut -d "." -f1)"
-log="$logs_folder/$script_name .log"
-mkdir -p $logs_folder &>>$log
+#Verify if the user has root access to run the script
+
 if [ "$user" -ne 0 ]; then
   echo -e "$red Please run the script using root access. $reset" | tee -a $log
   exit 1
 fi
 
+#Create a logs directory to store the log
+
+logs_folder="/var/logs/shell"
+script_name="$(echo $0 | cut -d "." -f1)"
+log="$logs_folder/$script_name .log"
+mkdir -p $logs_folder &>>$log
+
+#Requesting user to provide package details
+
 echo -e "$green Please enter the package to be installed $reset" | tee -a $log
 read package
+
+#Validation Function
 
 validation() {
     if [ "$?" -ne 0 ]; then
