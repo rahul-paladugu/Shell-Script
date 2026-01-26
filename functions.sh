@@ -15,4 +15,4 @@ Validate() {
 }
 
 dnf install ansible -y
-validate $? ansible
+Validate $? ansible
