@@ -12,8 +12,8 @@ if [ "$user" -ne 0 ]; then
   exit 1
 fi
 
-echo "Please type the package to be installed"
-read package
+echo "Please type the packages to be installed seperated by space"
+read packages
 
 validation() {
     if [ "$?" -ne 0 ]; then
@@ -24,6 +24,11 @@ validation() {
     fi
 
 }
-dnf list installed $package
+# dnf list installed $package
+# validation $package
+
+for package in $packages; do
+dnf list install $package
 validation $package
+done
 
