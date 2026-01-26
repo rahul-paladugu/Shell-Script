@@ -5,16 +5,17 @@ green="\e[32m"
 yellow="\e[33m"
 reset="\e[0m"
 user=$(id -u)
-if [ $user -ne 0 ] then
+if [ "$user" -ne 0 ] then
   echo "To install any packages you need root access"
   echo -e "$red Please run the script using root access $reset"
   exit 1
 fi
+
 echo "Please type the package to be installed"
 read package
 
 validation() {
-    if [ $? -ne 0 ] then
+    if [ "$?" -ne 0 ] then
       dnf install $package -y
       echo -e "$green Successfully installed $package . $reset"
     else
@@ -23,5 +24,5 @@ validation() {
 
 }
 dnf list installed $package
-validation
+validation $package
 
