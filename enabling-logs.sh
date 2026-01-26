@@ -34,4 +34,4 @@ validation() {
     fi
 }
 
-validation
+validation $package
