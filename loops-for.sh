@@ -26,7 +26,7 @@ read packages
 start_time=$(date +%s)
 for package in $packages
 do
- rpm -q $package
+ rpm -q $package &>>$log
  if [ $? -ne 0 ]; then
   dnf install $package -y &>>$log
   echo -e "$green $package has been installed successfully. $reset"
