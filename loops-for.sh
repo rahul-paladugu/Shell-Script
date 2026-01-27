@@ -31,7 +31,7 @@ do
   dnf install $package -y &>>$log
   echo -e "$green $package has been installed successfully. $reset"
   end_time=$(date +%s)
-  echo -e "$bold Time taken for the installation is $(($start_time - $end_time))"
+  echo -e "$bold Time taken for the installation is $(($end_time - $start_time)) Seconds"
  else
   echo -e "$bold $package was already installed. Please verify manually. Thanks. $reset"
   fi
