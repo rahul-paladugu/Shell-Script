@@ -8,5 +8,5 @@ read i
 while [ $i -le 10 ];
  do 
    echo "Print current value is $i"
-   i=$(i+1)
+   i=$((i+1))
  done
