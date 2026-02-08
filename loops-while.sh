@@ -5,7 +5,8 @@
 echo "Please enter a number between 1 to 10"
 read i
 
-while [ $i -ge 10 ];
+while [ $i -le 10 ];
  do 
    echo "Print current value is $i"
+   i=$(i+1)
  done
